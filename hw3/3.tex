@@ -1,0 +1,433 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage[makeroom]{cancel}
+
+\usepackage[normalem]{ulem}
+
+\setmainfont{Times New Roman}
+\setmathfont{Latin Modern Math}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\usepackage{enumitem}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+
+\begin{center}
+  \textbf{MATH} 145B---\textbf{HOMEWORK} 3
+
+  \color{red}R\color{teal}icardo
+  \color{red}J\color{cyan}.
+  \color{red}A\color{teal}cu$\color{red}{\widetilde{\color{teal}\text{n}}}$\color{teal}a\color{black}
+
+  \color{teal}(\color{red}862079740\color{teal})\color{black}
+\end{center}\vspace{1.618em}
+
+\color{red}NOTE: All functions under discussion are considered
+continuous, unless that's a property to be proved.\color{black}
+
+\subsubsection*{6.3}
+
+\paragraph{1} Each of the spaces below is either contractible or homotopy equivalent to $S^1$ or neither.
+For each example, determine which alternative holds. You do not need to give detailed
+proofs but please give a short explanations. \color{red} Note:  I know
+I don't have to prove any of this, but I did it already so feel free
+to skip to the conclusion. \color{black}
+
+(a) The solid torus $D^2 × S^1$
+
+\uwave{Pf\enskip.}
+\vspace{0.309 em}
+
+ $D^2 × S^1 =\\ \{(x,y)\in \mathbb{R}^2|\quad ||(x,y)|| \leq 1\}\times
+ \{(x,y)\in \mathbb{R}|\quad ||(x,y)|| = 1 \}=\\
+ \{[(x,y),(z,w)] \in \mathbb{R}^2\times\mathbb{R}^2|\quad  ||(x,y)||
+ \leq 1$ and $||(z,w)|| = 1\}$
+
+ $f: D^2 × S^1 \rightarrow S^1; [(x,y),(z,w)] \mapsto (z,w)$
+ and
+ $g: S^1 \rightarrow D^2 × S^1; (z,w) \mapsto [(0,0),(z,w)]$
+
+ $f\circ g ((z,w)) = f(g((z,w))) = f([(0,0),(z,w)]) = (z,w)$
+ $\implies f\circ g = 1_{S^1}$
+
+
+ $g\circ f([(x,y),(z,w)]) = g(f([(x,y),(z,w)])) = g((z,w)) =
+ [(0,0),(z,w)]$
+
+ Consider $H: (D^2 × S^1)\times [0,1] \rightarrow D^2\times S^1;
+ ([(x,y),(z,w)],t) \mapsto [t(x,y),(z,w)]$
+
+$H$ is continuous since the first coordinate of the output is the
+multiplication of two continuous functions, and the second coordinate
+is the same.
+
+$H([(x,y),(z,w)],1) = [(x,y),(z,w)] \implies H([(x,y),(z,w)],1) =
+1_{D^2\times S^1}$\\
+$H([(x,y),(z,w)],0) = [(0,0),(z,w)] \implies H([(x,y),(z,w)], 0) =
+g\circ f$
+
+$\implies g\circ f \sim 1_{D^2\times S^1}$\\
+
+$D^2 × S^1 \sim S^1$\\
+
+
+
+\vspace{0.309 em}
+$\blacksquare$
+
+(c) The cylinder $S^1 × \mathbb{R}$
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+
+$S^1 × \mathbb{R} = \{(x,y)\in \mathbb{R}^2|\quad ||(x,y)|| = 1\}\times
+\mathbb{R} = \{[(x,y), z] \in \mathbb{R}^2\times \mathbb{R}| ||(x,y)||
+= 1\}$
+
+ $f: S^1 × \mathbb{R} \rightarrow S^1; [(x,y),z] \mapsto (x,y)$
+ and
+ $g: S^1 \rightarrow S^1 × \mathbb{R}; (x,y) \mapsto [(x,y), 0]$
+
+ $f\circ g ((x,y)) = f(g((x,y))) = f([(x,y),0]) = (x,y)$
+ $\implies f\circ g = 1_{S^1}$
+
+ $g\circ f([(x,y),z]) = g(f([(x,y),z])) = g((x,y)) =
+ [(x,y),0]$
+
+
+ Consider $H: (S^1 × \mathbb{R})\times [0,1] \rightarrow S^1 × \mathbb{R};
+ ([(x,y),z],t) \mapsto [(x,y),tz]$
+
+$H$ is continuous since the second coordinate of the output is the
+multiplication of two continuous functions, and the first coordinate
+is the same.
+
+$H([(x,y),z],1) = [(x,y),z] \implies H([(x,y),z],1) =
+ 1_{S^1 × \mathbb{R}}$\\
+$H([(x,y),z],0) = [(x,y),0] \implies H([(x,y),z], 0) =
+g\circ f$
+
+$\implies g\circ f \sim 1_{S^1 × \mathbb{R}}
+\implies$
+$S^1 × \mathbb{R} \sim S^1$
+
+
+\vspace{0.618 em}
+$\blacksquare$
+
+
+(e) The set of all points $(x, y) ∈ \mathbb{R}^2$ such
+that $||(x, y)|| > 1$\\
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+$X$ $:= \{(x, y) ∈ \mathbb{R}^2|$ $||(x, y)|| > 1\}$
+
+$f: X \rightarrow S^1; (x,y) \mapsto \frac{(x,y)}{||(x,y)||}$
+and
+$g: S^1 \rightarrow X; (x,y) \mapsto 2(x,y)$
+
+$f\circ g ((x,y)) = f(g((x,y))) = f(2(x,y)) =
+\frac{2(x,y)}{||2(x,y)||} = \frac{2(x,y)}{2||(x,y)||} =
+\frac{(x,y)}{||(x,y)||}$
+
+Since, $(x,y) \in s^1$, $||(x,y)||=1$. So, $f\circ g ((x,y)) = (x,y)$
+
+$\implies f\circ g = 1_{s^1}$
+
+$g\circ f ((x,y)) = g(f((x,y))) = g(\frac{(x,y)}{||(x,y)||}) =
+2\frac{(x,y)}{||(x,y)||}$
+
+Consider $H: X\times [0,1]\rightarrow X; [(x,y),t] \mapsto \left( \frac{t||(x,y)||
+    +2(1-t)}{||(x,y)||}\right)(x,y)$
+
+$H$ is continuous since it's a rational function of three
+variables times a vector, and the denominator is never $0$ as $(x,y) \in X$.
+
+$H((x,y),0) = \left( \frac{0||(x,y)||
+    +2(1-0)}{||(x,y)||}\right)(x,y) =
+2\frac{(x,y)}{||(x,y)||}$ $\implies H((x,y),0) = g\circ f$
+
+$H((x,y),1) = \left( \frac{1||(x,y)||
+    +2(1-1)}{||(x,y)||}\right)(x,y) = \frac{||(x,y)||}{||(x,y)||}(x,y)
+=(x,y)$ $\implies H((x,y),1) = 1_X$
+
+$\implies g\circ f \sim 1_x$
+
+$\implies X \sim S^1$
+
+
+
+\vspace{0.618 em}
+$\blacksquare$
+\newpage
+(g)  The subset of $\mathbb{R}^2$ given by $S^1 \cup (\mathbb{R}^+ × \{0\})$.\\
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+$f: S^1 \cup (\mathbb{R}^+ × \{0\}) \rightarrow S^1$ defined by\\
+$f((x,y)) = \begin{cases} (x,y),$ if $ (x,y) \in S^1\\ (1,0),$ if $(x,y)
+  \in (\mathbb{R}^+ × \{0\}) \end{cases}$
+
+By gluing lemma, $f$ is continuous.\\
+Since, $(1,0)$ is both in $S^1$ and
+$(\mathbb{R}^+ × \{0\})$.\\
+And, $f((1,0))=1_{S^1}((1,0)) =(1,0)$.\\
+And, $f$ is the constant map $(1,0)$ on $(\mathbb{R}^+ ×
+\{0\})\backslash\{(1,0)\}$.\\
+And, $f$ is the identity map on
+$S^1\backslash\{(1,0)\}$.
+
+and $g: S^1 \hookrightarrow S^1 \cup (\mathbb{R}^+ × \{0\});
+(x,y)\mapsto (x,y)$
+
+$f \circ g((x,y)) = f(g((x,y))) = f((x,y)) = \begin{cases} (x,y),$ if $ (x,y) \in S^1\\ (1,0),$ if $(x,y)
+  \in (\mathbb{R}^+ × \{0\}) \end{cases}$
+
+Since the domain of $g$ is $S^1$ $f\circ g((x,y)) = (x,y) \implies
+f\circ g = 1_{s^1}$
+
+$g \circ f((x,y)) = g(f(x,y))\\ = g\left(\begin{cases} (x,y),$ if $ (x,y) \in S^1\\ (1,0),$ if $(x,y)
+    \in \mathbb{R}^+ × \{0\} \end{cases}\right)\\ = \begin{cases} g((x,y)),$ if $ (x,y) \in S^1\\ g((1,0)),$ if $(x,y)
+  \in \mathbb{R}^+ × \{0\} \end{cases}\\ = \begin{cases} (x,y),$ if $ (x,y) \in S^1\\ (1,0),$ if $(x,y)
+  \in \mathbb{R}^+ × \{0\} \end{cases}$
+
+Consider $H: (S^1 \cup (\mathbb{R}^+ × \{0\}))\times [0,1] \rightarrow
+S^1 \cup (\mathbb{R}^+ × \{0\})$ defined by
+
+$H((x,y),t) = \begin{cases}
+  (x,y),$ if $(x,y) \in S^1\\
+  t(1,0) +(1-t)(x,0),$ if $(x,y) \in \mathbb{R}^+ × \{0\}$ $\end{cases}$
+
+$H((x,y),0) = \begin{cases}
+  (x,y),$ if $(x,y) \in S^1\\
+  0(1,0) +(1-0)(x,0),$ if $(x,y) \in \mathbb{R}^+ × \{0\}$
+  $\end{cases} = \begin{cases}
+  (x,y),$ if $(x,y) \in S^1\\
+  (x,0),$ if $(x,y) \in \mathbb{R}^+ × \{0\}$ $\end{cases}$
+
+$\implies H((x,y),0) = 1_{S^1 \cup (\mathbb{R}^+ × \{0\})}$
+
+$H((x,y),1) = \begin{cases}
+  (x,y),$ if $(x,y) \in S^1\\
+  1(1,0) +(1-1)(x,0),$ if $(x,y) \in \mathbb{R}^+ × \{0\}$
+  $\end{cases} = \begin{cases}
+  (x,y),$ if $(x,y) \in S^1\\
+  (1,0),$ if $(x,y) \in \mathbb{R}^+ × \{0\}$ $\end{cases}$
+
+$\implies H((x,y),1) = f\circ g$
+
+$H$ is continuous when restricted to $(\mathbb{R}^+ ×
+\{0\})\times[0,1]$ since the restricted map is a straight line
+homotopy. $H$ is also continuous when restricted to
+$S^1\times[0,1]$ since it's the identity homotopy. Since $((1,0),t)$ is
+both on $(\mathbb{R}^+ ×
+\{0\})\times[0,1]$ and $S^1\times[0,1]$, we only need to show both cases
+agree for all $t$.
+
+$H((1,0),t) = \begin{cases}
+  (1,0),$ if $(1,0) \in S^1\\
+  t(1,0) +(1-t)(1,0),$ if $(1,0) \in \mathbb{R}^+ × \{0\}$
+  $\end{cases}\\ = \begin{cases}
+  (1,0),$ if $(1,0) \in S^1\\
+  t(1,0) +1(1,0) -t(1,0),$ if $(1,0) \in \mathbb{R}^+ × \{0\}$
+  $\end{cases}\\ = \begin{cases}
+  (1,0),$ if $(1,0) \in S^1\\
+  (t-t)(1,0) + (1,0),$ if $(1,0) \in \mathbb{R}^+ × \{0\}$
+  $\end{cases} =
+\begin{cases}
+  (1,0),$ if $(1,0) \in S^1\\
+  (1,0),$ if $(1,0) \in \mathbb{R}^+ × \{0\}$ $\end{cases} = (1,0)$
+
+$\implies g\circ f \sim 1_{S^1 \cup (\mathbb{R}^+ × \{0\})} \implies
+S^1 \cup (\mathbb{R}^+ × \{0\}) \sim S^1$
+
+\vspace{0.618  em}
+$\blacksquare$
+
+(i)  The subset of $\mathbb{R}^2$ given by $S^1 \cup (\mathbb{R}^+ × \mathbb{R})$
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+
+Note, $(0,0) \notin$ $s^1 \cup (\mathbb{R}^+ × \mathbb{R})$\\
+(This observation is implicit because, the question (h)
+considered $s^1 \cup ([0,+\infty) × \mathbb{R})$)
+
+$f: s^1 \cup (\mathbb{R}^+ × \mathbb{R}) \rightarrow S^1; \frac{(x,y)}{||(x,y)||}$
+and $g: S^1 \hookrightarrow S^1 \cup (\mathbb{R}^+ × \mathbb{R});
+(x,y)\mapsto (x,y)$
+
+$f\circ g ((x,y)) = f(g((x,y))) = f((x,y))= \frac{(x,y)}{||(x,y)||}$
+
+Since the domain of $g$ is $S^1$ $(x,y) \in S^1 \implies ||(x,y)|| =
+1$
+
+$\implies f\circ g ((x,y)) = (x,y) \implies f\circ g = 1_{S^1}$
+
+$g\circ f((x,y)) = g(f(x,y)) = g(\frac{(x,y)}{||(x,y)||}) =\frac{(x,y)}{||(x,y)||} $
+
+Consider $H: s^1 \cup (\mathbb{R}^+ × \mathbb{R}) \times [0,1]\rightarrow s^1 \cup (\mathbb{R}^+ × \mathbb{R}); [(x,y),t] \mapsto \left( \frac{t||(x,y)||
+    +(1-t)}{||(x,y)||}\right)(x,y)$
+
+$H$ is continuous since it's a rational function of three
+variables times a vector, and the denominator is never $0$ as $(x,y)
+\in s^1 \cup (\mathbb{R}^+ × \mathbb{R})$.
+
+$H((x,y),0) = \left( \frac{0||(x,y)||
+    +(1-0)}{||(x,y)||}\right)(x,y) =
+\frac{(x,y)}{||(x,y)||}$ $\implies H((x,y),0) = g\circ f$
+
+$H((x,y),1) = \left( \frac{1||(x,y)||
+    +(1-1)}{||(x,y)||}\right)(x,y) = \frac{||(x,y)||}{||(x,y)||}(x,y)
+=(x,y)$ $\implies H((x,y),1) = 1_{s^1 \cup (\mathbb{R}^+ × \mathbb{R})}$
+
+$\implies g\circ f \sim 1_{s^1 \cup (\mathbb{R}^+ × \mathbb{R})}$
+
+$\implies s^1 \cup (\mathbb{R}^+ × \mathbb{R}) \sim S^1$
+
+\vspace{0.618  em}
+$\blacksquare$
+
+The, proof of (g) is ok, but it's somewhat involved as I assumed
+$(0,0)$ was in $S^1 \cup (\mathbb{R}^+ × \{0\})$. I'm convinced now it
+is not the case, and in fact one can replace $\{0\}$ for $\mathbb{R}$
+in the previous proof and it proves (g) much easier.
+\newpage
+
+\paragraph{2}
+
+(a)  Let $f, g:S^1→S^1$ be continuous mappings and let’s take the
+complex multiplication operation on $S^1 ⊂ \mathbb{C}$.  Define $h(z)$
+to be the product $h(z) =f(z)·g(z)$.  Show that deg$(h)$ is equal to
+deg$(f) +$ deg$(g)$
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+$f: S^1\rightarrow S^1$ $\implies \exists n\in \mathbb{Z}: f \sim z^n$
+
+$\implies \exists (F: S^1\times [0,1]\rightarrow S^1): F(z,1) = f(z)$
+and $F(s,0) = z^n$
+
+$g: S^1\rightarrow S^1$ $\implies \exists m\in \mathbb{Z}: g \sim z^m$
+
+$\implies \exists (G: S^1\times [0,1]\rightarrow S^1): G(z,1) = g(z)$
+and $G(z,0) = z^m''
+
+$``\cdot''$ denotes the complex multiplication operation on $\mathbb{C}$
+
+$h: S^1\rightarrow S^1; z \mapsto f(z)\cdot g(z)$
+
+Consider $H: S^1\times [0,1]\rightarrow S^1$ defined by
+
+$H(z,t) = F(z,t)\cdot G(z,t)$
+
+$H$ is continuous since it's the complex multiplication of two
+continuous functions.
+
+$H(z,0) = F(z,0)\cdot G(z,0) = z^n\cdot z^m$
+
+and
+
+$H(z,0) = F(z,1)\cdot G(z,1) = f(z)\cdot g(z) = h(z)$
+
+$\implies h \sim z^n\cdot z^m = z^{n+m}$
+
+$\implies $deg$(h) =$ deg$(z^{n+m}) = n + m = $ deg$(f) +$ deg$(g)$
+
+\vspace{0.618  em}
+$\blacksquare$
+
+(b)  If $f, g:S^1→S^1$ are homotopic continuous mappings, then deg$(f)
+= $ deg$(g)$
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+$f, g:S^1→S^1$ are homotopic continuous mappings
+
+$\implies$ $\exists n \in \mathbb{Z}: f\sim z^n$ and
+$\exists m \in \mathbb{Z}: g\sim z^m$
+
+$\implies$ deg$(f) = n$ and deg$(g) = m$
+
+$f\sim g$ and $g\sim z^m \implies f\sim z^m$
+
+$\implies$ deg$(f)= m$
+
+$\implies$ deg$(f) =$ deg$(g)$
+
+\vspace{0.618  em}
+$\blacksquare$
+
+
+\newpage
+
+\paragraph{3}  If $f, g:S^1→S^1$ are two continuous maps, express
+deg$(f\circ g)$ in terms of deg$(f)$ and deg$(g)$.  Use this to show that
+$f\circ g$ is homotopic to $g\circ f$.
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+$f: S^1\rightarrow S^1$ $\implies \exists n\in \mathbb{Z}: f \sim z^n$
+
+$\implies \exists (F: S^1\times [0,1]\rightarrow S^1): F(z,1) = f(z)$
+and $F(s,0) = z^n$
+
+$g: S^1\rightarrow S^1$ $\implies \exists m\in \mathbb{Z}: g \sim z^m$
+
+$\implies \exists (G: S^1\times [0,1]\rightarrow S^1): G(z,1) = g(z)$
+and $G(z,0) = z^m$
+
+Consider $H: S^1\times [0,1]\rightarrow S^1$ defined by
+
+$H(z,t) = F(G(z,t),t)$
+
+$H$ is continuous since it's the composition of two
+continuous functions.
+
+$H(z,1) = F(G(z,1),1) = F(g(z),1) = f(g(z)) = f\circ g (z)$
+
+and
+
+$H(z,0) = F(G(z,0),0) = F(z^m,1) = (z^m)^n = z^{mn}$
+
+$\implies f\circ g \sim z^{nm}$
+
+$\implies $deg$(f\circ g) =$ deg$(z^{nm}) = nm = $ deg$(f)$ deg$(g)$
+
+By the symmetry, one can evaluate the previous sentence for $f = g$
+and $g = f$, so it becomes:
+
+deg$(g\circ f) =$ deg$(z^{mn}) = mn = $ deg$(g)$ deg$(f)$ $=$ deg$(f)$ deg$(g)$
+
+$\implies$ deg$(f\circ g) =$ deg$(g\circ f)$
+
+$\implies$ $f\circ g \sim g\circ f$ (by 35 Corollary in Circle Lecture
+Notes)
+
+\vspace{0.618  em}
+$\blacksquare$
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

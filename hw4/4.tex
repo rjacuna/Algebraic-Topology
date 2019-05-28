@@ -1,0 +1,235 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage[makeroom]{cancel}
+
+\usepackage[normalem]{ulem}
+
+\setmainfont{Times New Roman}
+\setmathfont{Latin Modern Math}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\usepackage{enumitem}
+\renewcommand\qed{$\blacksquare$}
+
+\usepackage{mathabx,graphicx}
+\usepackage{wrapfig}
+
+\begin{document}
+
+\begin{center}
+  \textbf{MATH} 145B---\textbf{HOMEWORK} 4
+
+  \color{red}R\color{teal}icardo
+  \color{red}J\color{cyan}.
+  \color{red}A\color{teal}cu$\color{red}{\widetilde{
+      \color{teal}\text{n}}}$\color{teal}a\color{black}
+
+  \color{teal}(\color{red}862079740\color{teal})\color{black}
+\end{center}\vspace{1.618em}
+
+\color{red}NOTE: All functions under discussion are considered
+continuous, unless that's a property to be proved.\color{black}
+
+\subsubsection*{6.4}
+
+\paragraph{3} Let $f: S^1\rightarrow S^1$ be a continuous mapping such
+that deg$(f) \neq 1$. Prove that $f$ has a fixed point.
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+Ass. deg$(f) \neq 1$\quad $\guillemotright \triangle \guillemotleft$
+
+Let $S^1:= \{z\in \mathbb{C}|\quad |z| = 1\}$
+
+Suppose $f$ doesn't have a fixed point---i.e. $\forall z \in
+\mathbb{C}: f(z)\neq z$\quad $\guillemotright \lozenge \guillemotleft$
+
+Consider $H: S^1\times [0,1]\rightarrow S^1; (z,t) \mapsto \frac{(1
+  -t)f(z) -tz}{||(1 -t)f(z) -tz||}$
+
+Since $H$ is a rational multi-variable function, $H$ is continuous iff
+it's denominator is never $0$. And, $||x||$ is $0$ iff $x = 0$. So we
+only need to check that case.
+
+$(1 -t)f(z) -tz \stackrel{?}{=} 0$
+
+$\implies (1 -t)f(z) = tz$\quad $\guillemotright * \guillemotleft$
+
+$\stackrel{||.||}{\implies} ||(1 -t)f(z)|| =  ||tz||$
+
+$\implies |(1 -t)|\cdot||f(z)|| =  |t|\cdot||z||$
+
+$f(z)$, $z$ $\in S^1$ $\implies ||f(z)|| = ||z|| =1$
+
+$\implies |(1 -t)|\cdot 1 =  |t|\cdot 1$
+
+$t<1 \implies 1 -t = |t|$
+
+$\implies 1-t = t$
+
+$\implies 1 = 2t \implies t
+= \frac{1}{2}$
+
+$\guillemotright * \guillemotleft$ $\implies \frac{1}{2}f(z) =
+\frac{1}{2}z$
+
+$\stackrel{\cdot 2}{\implies} f(z) = z$\quad $\guillemotright \blacklozenge \guillemotleft$
+
+$\guillemotright \lozenge \guillemotleft$ $\implies H$ is continuous
+since $\guillemotright \blacklozenge \guillemotleft$ can't happen.
+
+$H(z,0) = \frac{f(z)}{||f(z)||} = \frac{f(z)}{1} = f(z)$
+
+$H(z,1) = \frac{z}{||z||} = \frac{z}{1} = z = 1_{s^1}(z)$
+
+$\implies f\sim 1_{S^1}$
+
+$\implies$ deg$(f) = $ deg$(1_{S^1}) = 1$
+
+This contradicts\quad $\guillemotright \triangle \guillemotleft$
+
+$\implies$ $\exists z_0\in \mathbb{C}: f(z_0) = z_0$
+
+So, $f$ has a fixed point.
+
+\vspace{0.618  em}
+$\blacksquare$
+
+\newpage
+\paragraph{6} Show that if $A$ is a nonsingular $3$ by $3$ matrix having nonnegative entries, then $A$ has
+a positive real eigenvalue.
+
+\uwave{Pf\enskip. }
+\vspace{0.618 em}
+
+Let $A$ be a nonsingular $3$ by $3$ matrix having nonnegative entries.
+
+$\implies$ The entries of $A$ are positive real numbers, because
+there's no such thing as a complex negative numbers.
+
+Denote the set of all $3$ by $3$ real valued  matrices by
+Mat$_{3\times3}(\mathbb{R})$.
+
+And, the set of
+all linear endomorphisms of $\mathbb{R}^3$ by $\mathcal{L}(\mathbb{R}^3)$.
+
+Mat$_{3\times3}(\mathbb{R})$$\simeq$ $\mathcal{L}(\mathbb{R}^3)$ (by
+Linear Algebra)
+
+$\implies \exists\enskip (\enskip T:
+\mathbb{R}^3$\enskip\rotatebox{90}{$\circlearrowleft$}\enskip $)$ such that $A$
+is the matrix representation of $T$
+
+$S^2_{\geq 0}:= (\mathbb{R}^2\times (\{0\}\cup \mathbb{R^+})) \cap
+S^2$
+
+Consider $T^*: \mathbb{R}^3\rightarrow S^2_{\geq
+  0}; (x,y,z)
+\mapsto \frac{T((x,y,z))}{||T((x,y,z))||}$
+
+$T^{*}$ is continuouse since $||T((x,y,z))|| = 0$ iff $T((x,y,z)) =
+(0,0,0)$ since, $T$ is linear $T((x,y,z)) = 0$ iff $(x,y,z) =
+(0,0,0)$. So $||T((x,y,z))|| = 0 \implies (0,0,0)/0 = (0,0,0)$. So
+$T^{*}$ is well defined.
+
+Consider $T^{*}|_{S^2_{\geq 0}}: S^2_{\geq
+  0}$\enskip\rotatebox{90}{$\circlearrowleft$}\enskip, the restriction
+of $T^{*}$ to $S^2_{\geq 0}$
+
+
+Since the image of the stereographic projection of $S^2_{\geq 0}$ is
+$D^2$, and the stereographic projection admits a continuous inverse. It
+follows that $S^2_{\geq 0}\simeq D^2$.
+
+
+$\implies \exists (f: D^2
+\rightarrow S^2_{\geq 0})$
+and $(g: S^2_{\geq 0}\rightarrow D^2):$
+$f\circ g =  1_{D^2}$ and $g\circ f = 1_{S^3_{\geq 0}$
+
+$\implies g\circ T^{*}|_{S^2_{\geq 0}}\circ f: D^2\rightarrow D^2$
+
+$f, g, T^{*}|_{S^2_{\geq 0}}$ are continuous $\implies g\circ T^{*}|_{S^2_{\geq 0}}\circ f$ is continuous
+
+$\implies g\circ T^{*}|_{S^2_{\geq 0}} \circ f$ has a fixed point (by Brawer's)
+
+$\implies \exists (x,y) \in D^2: g\circ T^{*}|_{S^2_{\geq 0}} \circ f((x,y)) = (x,y)$
+
+$\stackrel{f}{\implies} f \circ g\circ T^{*}|_{S^2_{\geq 0}} \circ f((x,y)) = f((x,y))
+\in S^2_{\geq 0}$
+
+$\implies 1_{S^2_{\geq 0}}\circ T^{*}|_{S^2_{\geq 0}} \circ f((x,y)) = f((x,y))$
+
+$\implies T^{*}|_{S^2_{\geq 0}} \circ f((x,y)) = f((x,y))$
+
+$\implies T^{*}|_{S^2_{\geq 0}}(f((x,y))) = \frac{T(f(x,y))}{||T(f(x,y))||} =
+f((x,y))$
+
+$\implies \frac{T(f(x,y))}{||T(f(x,y))||} = f((x,y))$
+
+$\implies T(f(x,y)) = ||T(f(x,y))|| f((x,y))$
+
+Let $\lambda := ||T(f(x,y))|| \in \mathbb{R}$
+and $(a,b,c) := f(x,y) \in S^2_{\geq 0} \implies (a,b,c) \in
+R^3$
+
+$\implies A(a,b,c)^T = \lambda (a, b, c)^T$ (by the one-to-one
+correspondence between $A$ and $T$)
+
+$\implies A$ has a positive real eigenvalue
+
+\vspace{0.618  em}
+$\blacksquare$
+
+
+\subsection*{7.2}
+\paragraph{1}  Give an example of space build of two vertices and two
+edges which is homeomorphic to the simplicial circle but not a simplicial complex.
+
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \includegraphics[scale=0.15]{dots} \end{wrapfigure}
+If you normalize
+the edges you get a circle. However, it is not a simplicial complex,
+because the intersection of the top and bottom lines is two
+disconnected points. Which isn't a simplex. So, it isn't a simplicial complex.
+
+\paragraph{3}
+
+(a)  Draw a triangulation of the cylinder.
+
+  \includegraphics[scale=0.25]{cylinder}
+
+  (b)  Calculate the Euler number of the cylinder.
+
+  $\chi\left(  \includegraphics[scale=0.10,
+    angle=66,origin=c]{cylinder}\right) = 6 - 12 + 6 = 0$
+
+\paragraph{7} a)  Draw a triangulation of the surface of genus two,
+$Σ_2$.
+
+\includegraphics[scale=0.2]{g2}
+
+
+(b)  Calculate the Euler number of the surface of genus two, $Σ_2$.
+
+$\chi\left(  \includegraphics[scale=0.10,
+    angle=66,origin=c]{g2}\right) = 18 - 64 + 44 = -2$
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

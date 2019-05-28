@@ -1,0 +1,379 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage[makeroom]{cancel}
+
+\usepackage[normalem]{ulem}
+
+\setmainfont{Times New Roman}
+\setmathfont{Latin Modern Math}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\usepackage{enumitem}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+
+\begin{center}
+  \textbf{MATH} 145B---\textbf{HOMEWORK} 1
+
+  \color{red}R\color{teal}icardo
+  \color{red}J\color{cyan}.
+  \color{red}A\color{teal}cu$\color{red}{\widetilde{\color{teal}\text{n}}}$\color{teal}a\color{black}
+
+  \color{teal}(\color{red}862079740\color{teal})\color{black}
+\end{center}\vspace{1.618em}
+
+$\guillemotright n \guillemotleft$ $:= $ Statement number $n$
+
+$;$ $:= $ Reads `defined by' if preceded by a function type
+declaration---i.e. $f: X \rightarrow Y; x \mapsto x^2$. reads $f$ from $X$
+to $Y$ defined by $x$ maps to $x$ squared
+
+$1_X$ $:=$ $\forall$ sets $X: X \neq \emptyset$, $1_X: X \rightarrow
+X; x \mapsto x$ denotes the identity function on $X$
+
+$(\_)^T$ $:=$ The transpose of $(\_)$
+
+$[\_]_{m\times n}$ $:=$ $m \times n$ decorates the object and denotes
+the dimension of the object. Used for clarity.
+
+Crossley $:=$ ISBN 978-1-85233-782-7
+
+|\_| $:=$ The cardinality of \_
+
+$\equiv :=$ Constantly equals
+
+
+\subsubsection*{6.1}
+
+\paragraph{2}Show that the map $f : S^1 → S^1$ given by $f (x, y) =
+(−x, −y)$ is homotopic to the
+identity map.
+
+
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+Want to show $f : S^1 \rightarrow S^1; (x,y) \mapsto (-x,-y)$ is
+homotopic to $1_{S^1}$
+
+$H:S^1\times[0,1]\rightarrow S^1; ((x,y),t)
+\mapsto (\begin{pmatrix}\cos(\pi t)& -\sin(\pi t)\\ \sin(\pi t) & \cos(\pi t)\end{pmatrix}(x,y)^T)^T$
+
+$H((x,y),0) = (\begin{pmatrix}\cos(0)& -\sin(0)\\ \sin(0)&
+  \cos(0)\end{pmatrix}(x,y)^T)^T=([I]_{2\times2}(x,y)^T)^T = (x,y)$\\
+$H((x,y),1) = (\begin{pmatrix}\cos(\pi)& -\sin(\pi)\\ \sin(\pi)&
+  \cos(\pi)\end{pmatrix}(x,y)^T)^T= (-[I]_{2\times2}(x,y)^T)^T =
+(-x,-y)$
+
+This completes half of the proof, now let's consider the continuity of
+$H$:\\
+
+$(\begin{bmatrix}\cos(\pi t)& -\sin(\pi t)\\ \sin(\pi t) & \cos(\pi
+  t)\end{bmatrix}_{2\times2}[(x,y)^T]_{2\times1})^T= \\
+
+\begin{pmatrix}\cos(\pi
+  t)x-\sin(\pi t)y\\ \sin(\pi t)x + \cos(\pi t)y\end{pmatrix}^T= \\
+
+(\cos(\pi
+t)x-\sin(\pi t)y, \sin(\pi t)x + \cos(\pi t)y) $
+
+So H is continuous since both, $\pi_x\circ H$ and $\pi_y \circ H$ are
+sums and products of continuous functions. This completes
+$\frac{3}{4}$ of the proof.
+
+Now, it just a matter of checking whether $H[S^1\times [0,1] ] \subset
+S^1$
+
+$(\cos(\pi t)x-\sin(\pi t)y)^2 + (\sin(\pi t)x + \cos(\pi t)y)^2=$\\
+$\cos^2(\pi t)x^2-2\cos(\pi t)\sin(\pi t)xy+\sin^2(\pi
+t)y^2+\sin^2(\pi t)x^2+2\cos(\pi t)\sin(\pi t)xy+\cos^2(\pi t)y^2=$\\
+$\cos^2(\pi t)x^2-\cancel{2\cos(\pi t)\sin(\pi t)xy}+\sin^2(\pi
+t)y^2+\sin^2(\pi t)x^2+\cancel{2\cos(\pi t)\sin(\pi t)xy}+\cos^2(\pi
+t)y^2=$\\
+$\cos^2(\pi t)x^2+\sin^2(\pi t)x^2+\sin^2(\pi t)y^2+\cos^2(\pi
+t)y^2=$\\
+$(\cos^2(\pi t)+\sin^2(\pi t))x^2+(\sin^2(\pi t)+\cos^2(\pi t))y^2=$\\
+$1x^2+1y^2 = x^2 + y^2 =1 $, Since $(x,y) \in S^1$
+
+So, $\forall (x,y)\in S^1: \forall t \in [0,1]: H((x,y),t)\in S^1$
+
+\vspace{0.618 em}
+$\blacksquare$
+\newpage
+
+\paragraph{3} Show that if $f, g : X → Y$ are homotopic and $h, k : Y → Z$ are homotopic, then $h ◦ f$
+and $k ◦ g$ are homotopic.
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+
+$f\sim g \implies \exists ($continuous $F: X\times[0,1]\rightarrow Y):
+F(x,0)= f(x)$ and $F(x,1)= g(x)$
+
+$h\sim k \implies k\sim h \implies \exists ($continuous $K: Y\times[0,1]\rightarrow Z):
+K(x,0)= k(x)$ and $K(x,1)= h(x)$
+
+Consider $H: X\times[0,1] \rightarrow Z; (x,t)\mapsto K(F(x,t),t)$\\
+$\implies H(x,0) = K(F(x,0),0)= K(f(x),0) = h(f(x)) = h\circ f (x)$\\
+and\\
+$\implies H(x,1) = K(F(x,1),1)= K(g(x),1) = k(g(x)) = k\circ g (x)$
+
+Since, both, $F$ and $K$ are continuous, $H$ is continuous as
+$H$ is
+the composition of two continuous functions.
+
+So, $h\circ f \sim k\circ g$
+
+\vspace{0.618 em}
+$\blacksquare$
+
+
+\paragraph{4} Given spaces $X$ and $Y$, let $[X, Y]$ denote the set of homotopy classes of maps of $X$
+into $Y$. Let $I = [0, 1]$. Show that for any $X$, the set $[X, I]$ has a single element.
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+
+Suppose, $[X,I] = \{f,g\} \Rightarrow f\not\sim g$ $\guillemotright 0 \guillemotleft$
+
+$f \in [X,I] \implies \exists$ continuous $F: X\times I \rightarrow I$
+where $(x,0) \mapsto f(x)$ and  $(x,1) \mapsto 1$
+
+$g \in [X,I] \implies \exists$ continuous $G: X\times I \rightarrow I$
+where$
+(x,0) \mapsto g(x)$ and  $(x,1) \mapsto 1$
+
+Consider, $H: X\times I\rightarrow I; H(x,t) = \begin{cases}
+  F(x,2t), t\leq 1/2\\
+  G(x,2-2t), t \geq 1/2 \end{cases}$
+
+$\Rightarrow H(x,0) = F(x,0) = f(x)$\\
+$\Rightarrow H(x,1) = G(x,2-2) = G(x,0) = f(x)$
+
+Since, $H$ equals $F$ and $G$ exclusively $\forall t \in [0,\frac{1}{2})$ and
+$\forall t \in (\frac{1}{2}, 1]$ respectively. \\
+$H$ is automatically continuous on
+$[0,\frac{1}{2})\cup(\frac{1}{2},1]$
+
+The gluing lemma tells us it is enough to check that
+$H$ is continuous at $\frac{1}{2}$ is well defined---i.e
+check
+\[F(x,2\frac{1}{2}) \stackrel{?}{=} G(x,2-2\frac{1}{2})\]
+
+Indeed it is, since
+$F(x,2\frac{1}{2}) = F(x,1) = 1 = G(x,1) = G(x, 2 - 1) = G(x,2-2\frac{1}{2})$
+
+$\Rightarrow$ $H$ is a homotopy from $f$ to $g$ $\Rightarrow f \sim g$ which contradicts $\guillemotright 0
+\guillemotleft$
+
+So, $[X,I]$ has one element.
+
+\vspace{0.618 em}
+$\blacksquare$
+\newpage
+\paragraph{11} Show that if $g : S^2 → S^2$ is continuous and $g(x) \neq g(−x)$ for all $x ∈ S^2$ , then $g$ is
+surjective. (Hint: If $p ∈ S^2$ , then $S^2 \backslash \{p\}$ is homeomorphic to $\mathbb{R}^2$ . Then use Borsuk-Ulam Theorem)
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+WTS $g : S^2 → S^2$ is continuous and $g(x) \neq g(−x)$ for all $x ∈ S^2$ $\implies$ $g$ is
+surjective.
+
+Suppose $\exists p\in S^2: \forall x \in S^2:
+g(x)\neq p$ $\guillemotright 0 \guillemotleft$
+
+$S^2\backslash\{p\}$ is homeomorphic to
+$\mathbb{R}^2$ (by Hint)
+$\Rightarrow\\ \exists f: S^2\backslash\{p\} \rightarrow \mathbb{R}^2$
+and $\exists f^{-1}: \mathbb{R}^2\rightarrow  S^2\backslash\{p\}$:\\ $f\circ
+f^{-1} = 1_{\mathbb{R}^2}$ and $f^{-1}\circ f =
+1_{S^2\backslash\{p\}}$ $\guillemotright 1 \guillemotleft$
+
+Induce $g$ into $S^2\backslash\{p\}$ with $g': S^2\rightarrow
+S^2\backslash\{p\}; x \mapsto g(x)$
+
+Consider $f\circ g':S^2\rightarrow  \mathbb{R}^2$.
+$f\circ g'$ is continuous since it is a composition of continuous functions.\\
+$\exists x \in S^2: f\circ g'(x)=f\circ g'(-x)$ (By Borsuk-Ulam)\\
+$\Rightarrow f(g'(x))=f(g'(-x))$ (by definition of $\circ$)\\
+$\Rightarrow f(g(x))=f(g(-x))$ (by definition of $g'$)\\
+$\Rightarrow f^{-1}(f(g(x)))=f^{-1}(f(g(-x)))$ (by applying $f^{-1}$)\\
+$\Rightarrow f^{-1}\circ f(g(x))=f^{-1}\circ f(g(-x))$ (by definition of $\circ$)\\
+$\Rightarrow 1_{S^2\backslash\{p\}}(g(x))=1_{S^2\backslash\{p\}}(g(-x))$ (by $\guillemotright 1 \guillemotleft$)\\
+$\Rightarrow g(x)=g(-x)$
+
+This contradicts the property that $\forall x\in S^2: g(x)\neq g(-x)$
+so $\guillemotright 0 \guillemotleft$ is false.
+
+$\Rightarrow \exists p \in S^2: \forall x \in S^2: g(x)=p$\\
+$\Rightarrow g[S^2]=S^2$\\
+$\Rightarrow g$ is surjective
+
+\vspace{0.618 em}
+$\blacksquare$
+
+\newpage
+\subsubsection*{6.2}
+
+\paragraph{2} Write down a homotopy equivalence between $(0, 1)$ and $[0, 1]$.
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+
+$f:(0,1) \rightarrow [0,1]; x \mapsto 1/2$\\
+$g:[0,1] \rightarrow (0,1); y \mapsto 1/2$\\
+
+Since,
+$[0,1]\stackrel{g}{\rightarrow}(0,1)\stackrel{f}{\rightarrow}[0,1]$
+and
+$f\circ g(y) = f(g(y))=f(1/2)=1/2$\\
+All, continuous functions, on $[0,1]$ are homotopic to constant maps.\\
+In particular $1_{[0,1]} \sim 1/2 = f \circ g$\\
+Since,
+$(0,1)\stackrel{f}{\rightarrow}[0,1]\stackrel{g}{\rightarrow}(0,1)$
+and
+$g\circ f(x) = g(f(x))=g(1/2)=1/2$\\
+Consider, $H: (0,1)\times [0,1] \rightarrow (0,1); (x,t) \mapsto t/2
++(1-t)x$\\
+$H$ is continuous since it is a polynomial.\\
+$H(x,0) = x$ $\Rightarrow $ at $0, H  = 1_{(0,1)}$\\
+And since $H(x,1) = 1/2$ $\Rightarrow$ $1_{(0,1)} \sim 1/2 = g\circ f$\\
+So $(0,1) \simeq [0,1]$
+
+\vspace{0.618 em}
+$\blacksquare$
+
+\newpage
+\paragraph{3} Show that a space $X$ is contractible iff every map $f : X → Y$, for arbitrary $Y$ ,
+is nullhomotopic. Similarly, show $X$ is contractible iff every map $f : Y → X$ is
+nullhomotopic.
+
+The answer is in two parts 0 and 1
+
+\uwave{Pf\enskip. 0}
+\vspace{0.618 em}
+
+WTS $X$ is contractible iff every map $f : X → Y$, for arbitrary $Y$ ,
+is nullhomotopic.
+
+$(\Leftarrow)$ Ass. every map $f : X → Y$, for arbitrary $Y$,
+is nullhomotopic.
+
+$\Rightarrow$ $\forall($$f_j: X\rightarrow Y): \exists y_i\in Y: \exists (c_i: X \rightarrow
+Y;x\mapsto y_i): f_j\sim c_i$\\
+$\Rightarrow$ $[X,Y] = \{c_i:X\rightarrow Y\}$\\
+$\Rightarrow$ $[X,Y]$ has at most $|Y|$ elements
+
+Since $Y$ is arbitrary, we can choose $Y = \{0\}$.\\
+$\Rightarrow$ $[X,\{0\}]$ has 1 element.\\
+$\Rightarrow$ $[X,\{0\}] = \{c: X \rightarrow \{0\}; x \mapsto 0\}$.
+
+Consider $g: \{0\}\rightarrow X; 0 \mapsto x_0$\\
+$c\circ g (0) = c(g(0))= c(x_0) = 0$ $\Rightarrow$ $c\circ g =
+1_{\{0\}}$\\
+$g\circ c (x) = g(c(x))= g(0) = x_0$ $\Rightarrow$ $g\circ c \equiv
+x_0$\\
+
+Now, since $Y$ is arbitrary, we can choose again $Y = X$.\\
+$\Rightarrow$ $[X,X] = \{c_i: X\rightarrow X; x\mapsto  x_i| x_i \in
+X\}$.
+
+So, for some $x_0 \in X$, $g\circ c:X\rightarrow X \equiv x_0 \equiv c_0 \sim 1_X$
+
+$\Rightarrow$ $X\simeq \{0\}$ $\Rightarrow$ $X$ is contractible
+
+$(\Rightarrow)$ Ass. $X$ is contractible
+
+$\Rightarrow$ $X \simeq \{0\}$\\
+Let, $Y$ be an arbitrary topological space.\\
+Then, by Lemma $6.10$ in Crossley $[X,Y] = [\{0\}, Y]$
+
+Since,$\{0\}$ has one element,  $\forall (g:\{0\}\rightarrow Y),
+g$ has to be a constant map.
+
+$[\{0\},Y] = \{c_i: \{0\}\rightarrow
+Y; 0\mapsto y_i| y_i \in Y\}$ and $[X,Y] = [\{0\},Y]$ \\$\Rightarrow$\\ $[X,Y] =
+\{k_i:X \rightarrow Y; x\mapsto y_i| y_i\in Y\}$\\
+$\Rightarrow$\\
+$\forall$$(f: X\rightarrow Y): \exists y_i \in Y: (k_i: X \rightarrow
+Y;x\mapsto y_i): f\sim k_i$\\
+So, all maps $f$ from $X$ to $Y$ are nullhomotopic
+
+So, $X$ is contractible iff every map $f : X → Y$, for arbitrary $Y$ ,
+is nullhomotopic.
+
+\vspace{0.618 em}
+$\blacksquare$
+
+
+\newpage
+\uwave{Pf\enskip. 1}
+\vspace{0.618 em}
+
+Also WTS $X$ is contractible iff every map $f : Y → X$ is
+nullhomotopic.
+
+$(\Leftarrow)$ Ass. every map $f : Y → X$ is
+nullhomotopic.
+
+$\Rightarrow$ $\forall($$f_j: Y\rightarrow X):\exists x_i \in X: \exists (m_i: Y \rightarrow
+X; y \mapsto x_i): f_j\sim m_i$\\
+$\Rightarrow$ $[Y,X]$ has at most $|X|$ elements
+
+Since, $Y$ is arbitrary, we can choose $Y=\{x_0\}$: $x_0 \in X$.\\
+Now, since $\{x_0\}$ has one element $\forall (g_i: \{x_0\}\rightarrow X)$,
+$g_i$ is constant.\\
+So, $[\{x_0\},X] = \{g_i:\{x_0\} \rightarrow X; x_0 \mapsto x_i| x_i\in X\}$
+
+We can choose again, $Y = X$: $[X,X] = \{m_i: X \rightarrow X;
+x\mapsto x_i\}$
+
+$\Rightarrow$ $\exists x_0 \in X$: $m_0 \sim 1_X$
+
+Consider, $l: X \rightarrow \{x_0\}; x \mapsto x_0$\\
+$l \circ g_0 (x_0)= l(g_0(x_0)) = l(x_0) = x_0 \Rightarrow l\circ g_0
+= 1_{\{x_0\}}$
+
+$g_0\circ l (x) = g_0(l(x)) = g_0(x_0) = x_0$ $\Rightarrow$ $g_0\circ
+l = m_0 \sim 1_X$
+
+So, $X\simeq \{x_0\}$ $\Rightarrow X$ is contractible.
+
+$(\Rightarrow)$ Ass. $X$ is contractible.
+
+$\Rightarrow$ $X \simeq \{x_0\}$\\
+Let, $Y$ be an arbitrary topological space.\\
+Then, by Lemma $6.10$ in Crossley $[Y,X] = [Y,\{x_0\}]$
+
+Since, $\{x_0\}$ has one element, $[Y,\{x_0\}] = \{c: Y\rightarrow \{x_0\};
+y\mapsto x_0\}$ also has one element $c$.\\
+And, since $[Y,X] = [Y, \{x_0\}]$ by the lemma.
+
+$\forall (f:X \rightarrow Y): f\sim c$
+
+So, all functions from $X$ to $Y$ are nullhomotopic.
+
+So, $X$ is contractible iff every map $f : Y → X$ is
+nullhomotopic.
+
+\vspace{0.618 em}
+$\blacksquare$
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

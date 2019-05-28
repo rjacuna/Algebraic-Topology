@@ -1,0 +1,357 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage[makeroom]{cancel}
+
+\usepackage[normalem]{ulem}
+
+\setmainfont{Times New Roman}
+\setmathfont{Latin Modern Math}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\usepackage{enumitem}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+
+\begin{center}
+  \textbf{MATH} 145B---\textbf{HOMEWORK} 1
+
+  \color{red}R\color{teal}icardo
+  \color{red}J\color{cyan}.
+  \color{red}A\color{teal}cu$\color{red}{\widetilde{\color{teal}\text{n}}}$\color{teal}a\color{black}
+
+  \color{teal}(\color{red}862079740\color{teal})\color{black}
+\end{center}\vspace{1.618em}
+
+$\guillemotright n \guillemotleft$ $:= $ Statement number $n$
+
+$;$ $:= $ Reads `defined by' if preceded by a function type
+declaration---i.e. $f: X \rightarrow Y; x \mapsto x^2$. reads $f$ from $X$
+to $Y$ defined by $x$ maps to $x$ squared\\
+$1_X$ $:=$ $\forall$ sets $X: X \neq \emptyset$, $1_X: X \rightarrow
+X; x \mapsto x$ denotes the identity function on $X$\\
+Crossley $:=$ ISBN 978-1-85233-782-7\\
+|\_| $:=$ The cardinality of \_\\
+$\simeq$ $:=$ Homeomorphic\\
+$\sim$ $:=$ Homotopic, or Homotopy Equivalent depending whether it is
+between spaces or maps\\
+$||\textbf{x}||_2$ $:=$ $\sqrt{\sum_{i=1}^{n} x_i^2}$
+
+\color{red}NOTE: All functions under discussion are considered
+continuous, unless that's a property to be proved.\color{black}
+
+\vspace{16.18em}
+
+\begin{center}
+  \textit{Intentionally left blanK}
+\end{center}
+\newpage
+\subsubsection*{6.2}
+
+\paragraph{1} Prove that a discrete space consisting of $m$ points is
+homotopy equivalent to a discrete space consisting of $n$ points if
+and only if $m=n$.
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+
+($\impliedby$) Ass. $|X| = m = n = |Y|$, for some spaces
+$(X,\mathcal{T}_X) = \mathcal{X}$ and $(Y,\mathcal{T}_Y) =
+\mathcal{Y}$,\\ both $\mathcal{T}_X$ and $\mathcal{T}_Y$ are discrete topologies.
+
+Index, both sets with $I = \{1, ...,n\}: X = \{x_1, ... ,x_n\}$ and
+$Y= \{y_1, ... ,y_n\}$.
+
+Consider the maps
+$f:\mathcal{X} \rightarrow \mathcal{Y}; x_i  \mapsto y_i, i \in I$
+and $g:\mathcal{Y} \rightarrow \mathcal{X}; y_i \mapsto x_i, i \in I$
+
+$f \circ g : \mathcal{X} \rightarrow \mathcal{X}$ and
+$f(g(y_i))=f(x_i)=y_i$ $\implies f\circ g = 1_{\mathcal{Y}}$\\
+$g \circ f : \mathcal{Y} \rightarrow \mathcal{Y}$ and
+$g(f(x_i))=g(y_i)=x_i$ $\implies g\circ f = 1_{\mathcal{X}}$
+
+$\Rightarrow \mathcal{X}\simeq \mathcal{Y}$ $\Rightarrow \mathcal{X}\sim \mathcal{Y}$
+
+($\implies$) Ass. with the notation above,
+$\mathcal{X}\sim\mathcal{Y}$
+
+Ass. too, $|X| = m\neq n = |Y|$. And, without loss of generality ass., $0< m <
+n$.\\ Note, $\emptyset$ is trivially false, since maps are not defined
+from and to.
+
+Index with $I:$ $X= \{x_1,..., x_m\}$, and keep the indexing of $Y$
+above. And, let $J:= \{m+1, ... , n\}$.
+
+One can define, surjective maps from $\mathcal{Y}$ to
+$\mathcal{X}$, but at most injective maps from $\mathcal{X}$ to
+$\mathcal{Y}$.
+
+Suppose, $f:\mathcal{X} \rightarrow \mathcal{Y}$
+and $g:\mathcal{Y} \rightarrow \mathcal{X}$ give a homotopy equivalence
+between $\mathcal{X}$ and $\mathcal{Y}$.
+
+$\implies f\circ g \sim 1_{\mathcal{Y}}$
+
+Consider, $f\circ g[\mathcal{Y}] = f[g[\mathcal{Y}]]$, now $g$ is at best
+surjective, so if $g$ is surjective.
+Then $f[g[\mathcal{Y}]]=f[\mathcal{X}]$, and if $f$ is injective,
+then $f\circ g[\mathcal{Y}] \subset \mathcal{Y}$.
+That's the best case
+scenario, because if $g$ is not surjective, then $f\circ g[\mathcal{Y}]$ would have
+a smaller cardinality than if $g$ was surjective. Also, would have a
+smaller cardinality if $f$ was not injective. So in any case, $f\circ
+g[\mathcal{Y}] \subset \mathcal{Y}$. Then, $\mathcal{Y} \backslash f\circ
+g[\mathcal{Y}] \neq \emptyset$.
+
+$\implies f\circ g \neq 1_{\mathcal{Y}}$
+
+But, can we find a homotopy between them? Suppose we can.
+
+$\implies \exists H: \mathcal{Y}\times [0,1]\rightarrow \mathcal{Y}$
+and $H(y,0)=f\circ g(y)$ and $H(y,1)=1_{\mathcal{Y}}(y)$
+
+Since, $\mathcal{Y} \backslash f\circ
+g[\mathcal{Y}] \neq \emptyset$. Choose, $y_0 \in \mathcal{Y} \backslash f\circ
+g[\mathcal{Y}] \neq \emptyset$.
+
+Now, take $H^{-1}[\{(y_0,t)\}]$, $t\in [0,1]$. Consider, $t=0$, then
+$H^{-1}[\{(y_0,0)\}]=\{H(y_0,0)\}=f\circ g[\{y_0\}] = \emptyset$,
+since $f\circ g$ is not defined at $y_0$. But,
+at $t=1$, $H^{-1}[\{(y_0,1)\}]=\{H(y_0,1)\}=\{1_{\mathcal{Y}}(y_0)\}=
+\{y_0\}$. Now, the topology on $\mathcal{Y}\times [0,1]$, has to be
+the product topology. So, the continuity of $H$, depends on
+$[0,1]$. $\mathcal{Y}\times [0,1]$ is totally disconnected, since
+$\mathcal{Y}$ is totally disconnected. However, $\{y_0\}$ is a
+connected component of $\mathcal{Y}$. So, $\{y_0\}\times [0,1]$ is
+connected.
+If $H$ where continuous, then it would be defined, $\forall (y_0,t) \in
+\{y_0\}\times [0,1]$, it is not the case. So, $H$ can't be continuous,
+so it can't be a homotopy.
+
+$\implies f\circ g \not\sim 1_{\mathcal{Y}}$
+$\implies \mathcal{X}\not\sim \mathcal{Y}$ whenever $m \neq n$
+
+If, $m = n$, then there is no problem as the argument ($\impliedby$) is
+logically reversible.
+
+So, $\mathcal{X}\sim \mathcal{Y} \Leftrightarrow m=n$
+
+\vspace{0.618 em}
+$\blacksquare$
+
+\newpage
+\paragraph{3} Show that a space $X$ is contractible iff every map $f : X → Y$, for arbitrary $Y$ ,
+is nullhomotopic. Similarly, show $X$ is contractible iff every map $f : Y → X$ is
+nullhomotopic. \color{red}Note: The answer is in two parts 0 and 1\color{black}
+
+\uwave{Pf\enskip. 0}
+\vspace{0.618 em}
+
+WTS $X$ is contractible iff every map $f : X → Y$, for arbitrary $Y$ ,
+is nullhomotopic.
+
+$(\Leftarrow)$ Ass. every map $f : X → Y$, for arbitrary $Y$,
+is nullhomotopic.
+
+$\Rightarrow$ $\forall($$f_j: X\rightarrow Y): \exists y_i\in Y: \exists (c_i: X \rightarrow
+Y;x\mapsto y_i): f_j\sim c_i$\\
+$\Rightarrow$ $[X,Y] = \{c_i:X\rightarrow Y\}$\\
+$\Rightarrow$ $[X,Y]$ has at most $|Y|$ elements
+
+Since $Y$ is arbitrary, we can choose $Y = \{0\}$.\\
+$\Rightarrow$ $[X,\{0\}]$ has 1 element.\\
+$\Rightarrow$ $[X,\{0\}] = \{c: X \rightarrow \{0\}; x \mapsto 0\}$.
+
+Consider $g: \{0\}\rightarrow X; 0 \mapsto x_0$\\
+$c\circ g (0) = c(g(0))= c(x_0) = 0$ $\Rightarrow$ $c\circ g =
+1_{\{0\}}$\\
+$g\circ c (x) = g(c(x))= g(0) = x_0$ $\Rightarrow$ $g\circ c \equiv
+x_0$\\
+
+Now, since $Y$ is arbitrary, we can choose again $Y = X$.\\
+$\Rightarrow$ $[X,X] = \{c_i: X\rightarrow X; x\mapsto  x_i| x_i \in
+X\}$.
+
+So, for some $x_0 \in X$, $g\circ c:X\rightarrow X \equiv x_0 \equiv c_0 \sim 1_X$
+
+$\Rightarrow$ $X\sim \{0\}$ $\Rightarrow$ $X$ is contractible
+
+$(\Rightarrow)$ Ass. $X$ is contractible
+
+$\Rightarrow$ $X \sim \{0\}$\\
+Let, $Y$ be an arbitrary topological space.\\
+Then, by Lemma $6.10$ in Crossley $[X,Y] = [\{0\}, Y]$
+
+Since,$\{0\}$ has one element,  $\forall (g:\{0\}\rightarrow Y),
+g$ has to be a constant map.
+
+$[\{0\},Y] = \{c_i: \{0\}\rightarrow
+Y; 0\mapsto y_i| y_i \in Y\}$ and $[X,Y] = [\{0\},Y]$ \\$\Rightarrow$\\ $[X,Y] =
+\{k_i:X \rightarrow Y; x\mapsto y_i| y_i\in Y\}$\\
+$\Rightarrow$\\
+$\forall$$(f: X\rightarrow Y): \exists y_i \in Y: (k_i: X \rightarrow
+Y;x\mapsto y_i): f\sim k_i$\\
+So, all maps $f$ from $X$ to $Y$ are nullhomotopic
+
+So, $X$ is contractible iff every map $f : X → Y$, for arbitrary $Y$ ,
+is nullhomotopic.
+
+\vspace{0.3 em}
+$\blacksquare$
+
+
+\newpage
+\uwave{Pf\enskip. 1}
+\vspace{0.618 em}
+
+Also WTS $X$ is contractible iff every map $f : Y → X$ is
+nullhomotopic.
+
+$(\Leftarrow)$ Ass. every map $f : Y → X$ is
+nullhomotopic.
+
+$\Rightarrow$ $\forall($$f_j: Y\rightarrow X):\exists x_i \in X: \exists (m_i: Y \rightarrow
+X; y \mapsto x_i): f_j\sim m_i$\\
+$\Rightarrow$ $[Y,X]$ has at most $|X|$ elements
+
+Since, $Y$ is arbitrary, we can choose $Y=\{x_0\}$: $x_0 \in X$.\\
+Now, since $\{x_0\}$ has one element $\forall (g_i: \{x_0\}\rightarrow X)$,
+$g_i$ is constant.\\
+So, $[\{x_0\},X] = \{g_i:\{x_0\} \rightarrow X; x_0 \mapsto x_i| x_i\in X\}$
+
+We can choose again, $Y = X$: $[X,X] = \{m_i: X \rightarrow X;
+x\mapsto x_i\}$
+
+$\Rightarrow$ $\exists x_0 \in X$: $m_0 \sim 1_X$
+
+Consider, $l: X \rightarrow \{x_0\}; x \mapsto x_0$\\
+$l \circ g_0 (x_0)= l(g_0(x_0)) = l(x_0) = x_0 \Rightarrow l\circ g_0
+= 1_{\{x_0\}}$
+
+$g_0\circ l (x) = g_0(l(x)) = g_0(x_0) = x_0$ $\Rightarrow$ $g_0\circ
+l = m_0 \sim 1_X$
+
+So, $X\sim \{x_0\}$ $\Rightarrow X$ is contractible.
+
+$(\Rightarrow)$ Ass. $X$ is contractible.
+
+$\Rightarrow$ $X \sim \{x_0\}$\\
+Let, $Y$ be an arbitrary topological space.\\
+Then, by Lemma $6.10$ in Crossley $[Y,X] = [Y,\{x_0\}]$
+
+Since, $\{x_0\}$ has one element, $[Y,\{x_0\}] = \{c: Y\rightarrow \{x_0\};
+y\mapsto x_0\}$ also has one element $c$.\\
+And, since $[Y,X] = [Y, \{x_0\}]$ by the lemma.
+
+$\forall (f:X \rightarrow Y): f\sim c$
+
+So, all functions from $X$ to $Y$ are nullhomotopic.
+
+So, $X$ is contractible iff every map $f : Y → X$ is
+nullhomotopic.
+
+\vspace{0.618 em}
+$\blacksquare$
+
+\newpage
+\paragraph{7} If $X$ and $Y$ are topological spaces and $f,g: X
+\rightarrow Y$ are homotopic homeomorphisms, prove that their inverses $f^{-1}$ and $g^{-1}$ are also homotopic.
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+
+Ass. $X$ and $Y$ are topological spaces and $f,g: X
+\rightarrow Y$ are homotopic homeomorphisms.
+
+$\implies f\circ f^{-1} = 1_Y$ and $f^{-1}\circ f = 1_X$ and $g\circ
+g^{-1} = 1_Y$ and $g^{-1}\circ g = 1_X$ and $f \sim y$
+
+$f^{-1}=f^{-1}\circ 1_Y = f^{-1}\circ (g\circ g^{-1})= (f^{-1}\circ
+g)\circ g^{-1} \sim (f^{-1}\circ f)\circ g^{-1}= 1_X\circ g^{-1}=
+g^{-1}$
+
+$\implies f^{-1}\sim g^{-1}$
+
+
+\vspace{0.618 em}
+$\blacksquare$
+
+\paragraph{9}  Suppose that we are given continuous mappings $f,g:
+X\rightarrow S^n$such that $f(x)\neq −g(x)$ for all $x$.  Prove that
+$f$ is homotopic to $g$.
+
+\uwave{Pf\enskip.}
+\vspace{0.618 em}
+
+Ass. $f,g: X\rightarrow S^n$ such that $f(x)\neq −g(x)$ for all $x$.
+
+Consider $H: X\times [0,1]\rightarrow S^n;(x,t)\mapsto \frac{(1-t)f(x) +tg(x)}{||(1-t)f(x) +tg(x)||_2}$
+
+$H(x,0) = \frac{(1-0)f(x) +0g(x)}{||(1-0)f(x) +0g(x)||_2} =
+\frac{f(x)}{||f(x)||_2}$
+
+Since $f(x) \in S^n \implies ||f(x)||_2 = 1$. So, $H(x,0) = f(x)$.
+
+Similarly, $H(x,1) = \frac{(1-1)f(x) +1g(x)}{||(1-1)f(x) +1g(x)||_2} =
+\frac{g(x)}{||g(x)||_2} = g(x)$.
+
+$H$ is a rational function of multi-variable polynomials, so it is continuous whenever the
+denominator is not $0$. So, solve the following equation to determine
+the continuity of $H$.
+
+$||(1-t)f(x) +tg(x)||_2 = 0$ and Since, the euclidean norm is $0
+\Leftrightarrow$ the argument to the norm is $0$.
+
+$\implies (1-t)f(x) + tg(x) = 0 \implies (1-t)f(x) = -tg(x)$
+
+Take the euclidean norm of both sides, $||(1-t)f(x)||_2 =
+||-tg(x)||_2$
+$\implies ||(1-t)||_2||f(x)||_2 =
+||-t||_2||g(x)||_2$
+
+Since both $f(x)$ and $g(x)$ are on the n-sphere, their euclidean norm
+is $1$, so  $||(1-t)||_2 = ||-t||_2$.
+
+$t$ is positive and less than 1, so $1-t =t$.
+
+$\implies 1 = 2t \implies t = \frac{1}{2}$ --- i.e that's the only
+point in $[0,1]$ where the denomiator could be $0$.
+
+Now, reconsider $(1-t)f(x) + tg(x) = 0$ with $t = \frac{1}{2}$
+
+$\implies (1-\frac{1}{2})f(x) + \frac{1}{2}g(x) = 0 \implies
+\frac{1}{2}f(x) + \frac{1}{2}g(x) = 0 \implies \frac{1}{2}(f(x) +
+g(x)) = 0 \implies f(x) + g(x) = 0\\ \implies f(x) = -g(x)$
+
+But, $\forall x\in X: f(x) \neq -g(x)$ $\implies$ $||(1-t)f(x)
++tg(x)||_2 \neq 0$
+
+$\implies H$  is continuous.
+
+$\implies f\sim g$
+
+
+
+
+
+\vspace{0.618 em}
+$\blacksquare$
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
