@@ -1,0 +1,366 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage[makeroom]{cancel}
+
+\usepackage[normalem]{ulem}
+
+\setmainfont{Times New Roman}
+\setmathfont{Latin Modern Math}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\usepackage{enumitem}
+\renewcommand\qed{$\blacksquare$}
+
+\usepackage{mathabx,graphicx}
+\usepackage{wrapfig}
+
+\begin{document}
+
+\begin{center}
+  \textbf{MATH} 145B---\textbf{HOMEWORK} 6
+
+  \color{red}R\color{teal}icardo
+  \color{red}J\color{cyan}.
+  \color{red}A\color{teal}cu$\color{red}{\widetilde{
+      \color{teal}\text{n}}}$\color{teal}a\color{black}
+
+  \color{teal}(\color{red}862079740\color{teal})\color{black}
+\end{center}\vspace{1.618em}
+
+
+\paragraph{1. (a)}
+
+Reading from the picture:
+
+$C_1(S^1) = \{\lambda_0e_0+\lamda_1e_1+\lambda_1e_2|
+\lambda_i\in\mathbb{Z}\}$
+
+$
+C_0(S^1) = \{\lambda_0v_0+ \lambda_1v_1+\lambda_1v_2| \lambda_i\in\mathbb{Z}\} $
+
+$C_n(S^1) = 0$, $\forall n \geq 2$
+
+
+$\forall n \in \mathbb{N}: n\geq 2 \implies \bold{Ker}\enskip
+\partial_n =  \bold{Im}\enskip \partial_n = 0$
+
+$\implies \forall n \in \mathbb{N}: n\geq 2: H_n(S^1) = \frac{0}{0} = 0$
+
+$\partial_1(e_0) = v_2 - v_0 $
+
+$\partial_1(e_1) = v_1 - v_2 $
+
+$\partial_1(e_2) = v_0 - v_1 $
+
+$\implies \bold{Im}\enskip{\partial_1} = <v_2-v_0, v_1 -v_2, v_0 -v_1>$
+
+$v_0-v_1 = -(v_2-v_0+v_1-v_2)
+\implies$ one of the generators is
+redundant
+
+$\implies \bold{Im}\enskip{\partial_1} = <v_2-v_0, v_1 -v_2>$
+
+Solve $\partial_1(\lambda_0e_0+ \lambda_1e_1+ \lambda_2e_2) = \lambda_0(v_2 -
+v_0) +\lambda_1(v_1 - v_2) +
+\lambda_2(v_0 - v_1) = 0$
+
+$\implies \lambda_0(v_2 -
+v_0) +\lambda_1(v_1 - v_2) +
+\lambda_2(v_0 -v_1) =
+(\lambda_2 -\lambda_0)v_0
++(\lambda_1-\lambda_2)v_1
++ (\lambda_0 -\lambda_1)v_2 = 0$
+
+$\implies
+\lambda_2 -\lambda_0 = 0$ and $
+\lambda_1-\lambda_2 = 0$ and
+$ \lambda_0 -\lambda_1 =0 \implies
+\lambda_2 = \lambda_0$ and
+$\lambda_1 = \lambda_2$ and
+$\lambda_0 = \lambda_1$
+
+$\implies \lambda_0 = \lambda_1 =
+\lambda_2 := \lambda$
+
+$\implies \partial_1(\lambda(e_0+e_1+e_2)) = 0 $
+
+$\implies \bold{Ker}\enskip{\partial_1} = <e_0+e_1+e_2>$
+
+
+
+$\implies H_1(S^1) =$
+$\frac{\bold{Ker}\enskip \partial_1}{\bold{Im}\enskip\partial_{2}} =$
+$\frac{<e_0+e_1+e_2>}{0} = \mathbb{Z}$
+
+$\partial_0(v_0) = \partial_0(v_1) = \partial_0(v_2) = 0$
+
+$\implies \bold{Im}\enskip \partial_0 = 0$ and $\bold{Ker}\enskip \partial_0 = <v_0,v_1,v_2>$
+
+$\implies H_0(S^1) =$
+$\frac{\bold{Ker}\partial_0}{\bold{Im}\partial_{1}} =$
+$\frac{<v_0,v_1,v_2>}{<v_2-v_0,v_1-v_2>}$
+
+One can change the basis of $C_0(S^1) = \bold{Ker} \partial_0$ as
+such: $<v_0,v_1,v_2> = <v_0,v_1-v_2, v_2-v_0>$
+
+$\implies H_0(S^1) = \frac{<v_0,v_1-v_2,
+  v_2-v_0>}{<v_2-v_0,v_1-v_2>} =  <v_0> = \mathbb{Z}$
+
+So,
+
+$H_n(Annulus) = \begin{cases} \mathbb{Z}$ , $ n = \in \{0, 1\}\\ 0$ ,
+  else$\end{cases}$
+
+\newpage
+\paragraph{5. (a)}
+
+
+$\forall n\in \mathbb{N}: n\geq 3
+\implies C_n(S^2) = 0$
+
+$C_2(S^2) = \{\lambda f| \lambda \in
+\mathbb{Z}\}$
+
+$C_1(S^2) = 0$,
+
+$C_0(S^2) = \{\lambda v| \lambda \in \mathbb{Z}\}$
+
+$\forall n \in \mathbb{N}: n\geq 3
+\implies$ $\bold{Im}$ $\partial_n = 0 =
+\bold{Ker}$ $\partial_n$. Because they're all $0$.
+
+$f$ is the only element of $C_2(S^2)
+\implies$
+$\partial_2(f) = 0 \implies \bold{Im}$ $\partial_2 = 0$ and
+$\bold{Ker}$ $\partial_2 = <f>$
+
+$\implies H_2(S^2) =
+\frac{\bold{Ker}\partial_2}{\bold{Im}\partial_{3}} = \frac{<f>}{0} =
+<f> = \mathbb{Z}$
+
+$0$ is the only element of $C_1(S^2)$ $\implies \partial_1(0) = 0 \implies \bold{Im}$ $\partial_1 = 0$ and
+$\bold{Ker}$ $\partial_1 = 0$
+
+$v$ is the only element of $C_0(S^2) \implies \partial_0(v) = 0 \implies \bold{Im}$ $\partial_0 = 0$ and
+$\bold{Ker}$ $\partial_0 = <v>$
+
+$\implies H_0(S^2) =
+\frac{\bold{Ker}\partial_0}{\bold{Im}\partial_{2}} = \frac{<v>}{0} =
+<v> = \mathbb{Z}$
+
+
+So,
+
+$H_n(S^2) = \begin{cases} \mathbb{Z}$ , $ n = \in \{0, 2\}\\ 0$ ,
+  else$\end{cases}$
+
+
+\newpage
+\paragraph{7. (a)}
+
+
+$C_2(S^2)
+= \{\lambda f| \lambda \in \mathbb{Z}\}$
+
+
+$C_1(\mathbb{R}P^2) = \{\lambda_0a+\lambda_1b| \lambda_i
+\in \mathbb{Z}\}$
+
+$\downarrow$
+
+$C_0(\mathbb{R}P^2) = \{\lambda_0v_0+\lambda_1v_1| \lambda_i \in \mathbb{Z}\}$
+
+$\forall n\in \mathbb{N}: n\geq 3 \implies C_n(\mathbb{R}P^2) = 0$
+$\implies $ $\bold{Im}$ $\partial_n = 0 =
+\bold{Ker}$ $\partial_n$
+
+
+$f$ is the only element of $C_2(\mathbb{R}P^2) \implies \partial_2(f)
+= 2b-2a$ since you twist each edge once.
+
+$\implies \bold{Im}$ $\partial_2 = <2(b-a)>$
+
+$x(b-a) = xb-xa = 0 \implies x = 0 \implies \bold{Ker}$ $\partial_2 =
+0$
+
+$\implies H_n(\mathbb{R}P^2) =
+\frac{\bold{Ker}
+  \partial_n}{\bold{Im}
+  \partial_{n+1}} = \frac{0}{0} =
+0$, for $n\geq 2$
+
+$\partial_1(a) = v-w$ and
+$\partial_1(b) = v-w$
+
+$\implies \bold{Im}$ $\partial_1 = <v-w>$
+
+$y_1(v-w) +y_2(v-w) = (y_1+y_2)v -
+(y_1+y_2)w = 0 \implies y_1+y_2 = 0
+\implies -y_1 = y_2 $
+
+$\implies \bold{Ker}$ $\partial_1 =
+<b-a>$
+
+
+$\implies H_1(\mathbb{R}P^2) =
+\frac{\bold{Ker}
+  \partial_1}{\bold{Im} \partial_2}
+= \frac{<b-a>}{<2(b-a)>} =
+\frac{\mathbb{Z}}{2\mathbb{Z}} = \mathbb{Z}_2$
+
+$\partial_0(v_0) = \partial_0(v_1) = 0$ $\implies \bold{Im}$
+$\partial_0 = 0$ and $\bold{Ker}$ $\partial_0 = <v_0,v_1>$
+
+One can change the generators $<v_0,v_1>$ to $<v_1-v_0,v_0>$.
+
+$\implies H_0(\mathbb{R}P^2) = \frac{\bold{Ker} \partial_0}{\bold{Im}
+  \partial_1} = \frac{<v_0,v_1>}{<v_1-v_0>} =
+\frac{<v_1-v_0,v_0>}{<v_1-v_0>} = <v_0> = \mathbb{Z}$
+
+So,
+
+$H_n(\mathbb{R}P^2)
+= \begin{cases}\mathbb{Z}, n = 0\\
+  \mathbb{Z}_2, n = 1 \\
+  0,$ else$
+\end{cases}$
+\newpage
+\paragraph{10} Call the picture in the image $K$
+
+\uwave{pf.}
+\vspace{1.618em}
+
+$C_2(K) = \{\lambda_0f_0+\lambda_1f_1|$ $\lambda_i\in\mathbb{Z}\}$
+
+$C_1(K) = \{\lambda_0b+\lambda_1a|$ $\lambda_i\in\mathbb{Z}\}$
+
+$C_0(K) = \{\lambda_0v|$ $\lambda_i\in\mathbb{Z}\}$
+
+$\partial_2(f_0) = a-b$
+
+$\partial_2(f_1) = b$
+
+$\implies \bold{Im}$ $\partial_2 = <a-b, b> = <a,b>$
+
+$x_1(a-b)+x_2b = 0 \implies x_1a+(x_2-x_1)b = 0 \implies x_1=0, x_2
+-x_1=0 \implies x_1=x_2=0$
+
+$\implies \bold{Ker}$ $\partial_2 = 0$
+
+$\bold{Im}$ $\partial_3 = 0$, since $C_3(K) = 0$
+
+$\implies H_2(K)= \frac{0}{0} = 0$
+
+$\bold{Ker}$ $\partial_n = 0$ and
+$\bold{Im}$ $\partial_n = 0$,for all $n \geq 3$ since $C_n(K) = 0$
+then.
+
+$\implies H_n(K)= \frac{0}{0} = 0$,for all $n \geq 2$
+
+
+$\partial_1(b) = 0$
+
+$\partial_1(a) = 0$
+
+$\implies \bold{Im}$ $\partial_1 = 0$
+
+$\implies \bold{Ker}$ $\partial_1 = <a,b>$
+
+$\implies H_1(K) = \frac{<a,b>}{\bold{Im}\enskip \partial_2}
+=\frac{<a,b>}{<a,b>} = 0$
+
+
+$\partial_0(v) = 0$
+
+$\implies \bold{Ker}$ $\partial_0 = <v>$
+
+$H_0(K) = \frac{<v>}{\bold{Im}\enskip \partial_1}=\frac{<v>}{0} = <v> = \mathbb{Z}$
+
+So,
+
+$H_n(K) = \begin{cases}
+  \mathbb{Z},\enskip n = 0\\
+  0,\enskip$ else $
+\end{cases}$
+
+For Torus $\chi(T^2) = \sum_{n=0}^\infty (-1)^n \bold{dim} \enskip
+C_n(K) = 1-2 +1 + 0 + \cdots
+= 0$
+
+But, $\chi(K) = \sum_{n=0}^\infty (-1)^n \bold{dim} \enskip
+C_n(K) = 1 + 0 + 0 + \cdots
+= 1$
+
+We didn't need to do any of this... You can get it from Euler's formula
+$\chi = E-V+F$. $\chi_T = 0$, $K$ has $1$ more face so $F^\prime = F+1
+\implies \chi_K = 0 + 1 = 1$.
+
+The homology gets smaller, but the Euler characteristic gets bigger.
+
+\vspace{1.618em}
+$\qed$
+
+\newpage
+
+\paragraph{12. (a)} See drawing of X.
+
+
+$C_2(X) = \{\lambda f |$ $\lambda \in\mathbb{Z}\}$
+
+$C_1(X) = \{\lambda_0a+\lambda_1b +\lambda_2c +\lambda_3d|$ $\lambda_i\in\mathbb{Z}\}$
+
+$C_0(X) = \{\lambda v |$ $\lambda\in\mathbb{Z}\}$
+
+$\partial_2(\lambda f) = 2\lambda(a+b+c)$
+
+$\implies \bold{Im}$ $\partial_2 = 2<a+b+c>$
+
+$2\lambda(a+b+c) = 0 \implies \lambda = 0$
+
+$\implies \bold{Ker}$ $\partial_2 = 0$
+
+$C_n(K) = 0$, for $n \geq 3 \implies \bold{Im}$ $\partial_n = 0$
+
+$\implies H_n(X) = \frac{0}{0}$, for $n \geq 2$
+
+$\partial_1(a) = \partial_1(b) = \partial_1(c) = \partial_1(d) = 0$
+
+$\implies \bold{Im}$ $\partial_1 = 0$
+
+$\implies \bold{Ker}$ $\partial_1 = <a,b,c,d>$
+
+$\implies H_1(X) = \frac{<a,b,c,d>}{2<a+b+c>} =
+\frac{<a+b+c,b,c,d>}{2<a+b+c>} = \mathbb{Z}\oplus \mathbb{Z} \oplus
+\mathbb{Z} \oplus \mathbb{Z}_2$
+
+$\partial_0(v) = 0$
+
+$\implies \bold{Ker}$ $\partial_0 = <v>$
+
+$\implies H_0(X) = \frac{<v>}{0} = \mathbb{Z}$
+
+So
+
+$H_n(X) = \begin{cases}
+  \mathbb{Z}\quad\quad\quad\quad\quad\quad\quad, n = 0\\
+  \mathbb{Z}\oplus \mathbb{Z} \oplus
+  \mathbb{Z} \oplus \mathbb{Z}_2\quad, n = 1\\
+  0\quad\quad\quad\quad\quad\quad\quad,$ else $
+\end{cases}$
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

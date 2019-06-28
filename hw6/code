@@ -1,0 +1,41 @@
+
+
+I've managed to find my mistake and here is the final (if I'm not mistaken) correct solution.
+
+ClearAll[faces, skeleton, subseteq, subset, sBarycentricSubdivision, \
+scBarycentricSubdivision, sphere, projectiveSpace]
+faces[s_, k_] := Reverse@Subsets[s, {k + 1}]
+skeleton[sc_, k_] := Union[Sort /@ Flatten[faces[#, k] & /@ sc, 1]]
+
+subseteq[{},A_List] := True
+subseteq[{x_,y___}, A_List] := MemberQ[A, x] && subset[{y}, A]
+subseteq[A_List,B_List, C__List] := subset[A,B] && subset[B,C]
+subset[A_List, B_List] := subseteq[A, B] && Complement[B, A]!={}
+subset[A_List, B_List, C__List] := subset[A, B] && subset[B, C]
+
+sBarycentricSubdivision[{x_Integer}] := {{{x}}}
+sBarycentricSubdivision[s_List] := 
+ Subsets[s, {1, Length@s}] //Subsets[#,{Length@s}]& //
+  Select[#,subset@@#&]& 
+scBarycentricSubdivision[sc_List] := 
+ Flatten[sBarycentricSubdivision /@ sc, 1]
+
+sphere[n_Integer]  := skeleton[{Range[n+2]},n]
+
+projectiveSpace[n_Integer] := Module[
+  {sc1, vertices1, k, identification, sc2, vertices2, sc3},
+  sc1 = scBarycentricSubdivision[sphere[n]];
+  vertices1 = 
+   Sort@DeleteDuplicates@
+     Flatten[sc1, 
+      1]; (*the vertices (lists) are ordered antipodally with respect \
+to complement, ie. vertices1[i]={1,...,n+2}-vertices1[-i]*)
+  k = Length@vertices1;
+  identification = 
+   Table[vertices1[[-i]] -> vertices1[[i]], {i, 1, k/2}];
+  sc2 = DeleteDuplicates[Sort /@ (sc1/.identification)];
+  vertices2 = Flatten[sc2, 1] //Sort //DeleteDuplicates;
+  sc3 = Map[Position[vertices2, #][[1, 1]] &, sc2, {2}] //Sort //
+    DeleteDuplicates;
+  sc3
+  ]
